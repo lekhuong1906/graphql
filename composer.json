@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "mll-lab/laravel-graphql-playground": "^2.6",
         "nuwave/lighthouse": "^6.21",
+        "rebing/graphql-laravel": "^9.1",
         "webonyx/graphql-php": "^15.7"
     },
     "require-dev": {
