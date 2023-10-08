@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductImage extends Model
 {
     use HasFactory;
     protected $connection="mongodb";
     protected $collection="products";
 
     protected $fillable = [
-        'title', 'price', 'description', 'user_id'
+        'image', 'product_id'
     ];
 
     protected $dates = ['created_at','updated_at'];

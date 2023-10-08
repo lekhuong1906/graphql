@@ -96,7 +96,7 @@ return [
         'mongodb' => [
             'driver' => 'mongodb',
             'dsn' => env('DB_URI', 'mongodb://localhost:27017'),
-            'database' => env('DB_DATABASE', 'grapql'),
+            'database' => env('DB_DATABASE', 'graphql'),
             'options' => [
                 'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
             ],
