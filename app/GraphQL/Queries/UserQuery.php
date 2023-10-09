@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
 namespace App\GraphQL\Queries;
+
 use App\Models\User;
 
-final class Users
+final class UserQuery
 {
     /**
      * @param  null  $_
@@ -11,7 +12,6 @@ final class Users
      */
     public function __invoke($_, array $args)
     {
-        $id = $args['id'];
-        return User::find($id);
+        
     }
 }

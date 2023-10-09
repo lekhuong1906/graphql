@@ -1,18 +1,23 @@
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 directive @upperCase on FIELD_DEFINITION
 
 type Query {
-    
-    # user(_id: ID! @eq): User @find
-    
-    users: [User!]! @resolver(class: "App\\GraphQL\\Resolvers\\UserResolver@users")
+    users: [User!]!
+
+    users(_id: ID! @eq): User @find  #find users
+
+    listUser: [User!]! @paginate
+
+   hello
+
+  
 }
 
-
 type User {
-    _id: ID! 
+    _id: ID!
     name: String!
     email: String!
     password: String!
@@ -20,12 +25,17 @@ type User {
     updated_at: DateTime!
 }
 
+type UserPagnator {
+    data: [User!]!
+    paginatorInfo!
+}
+
 type Mutation {
-  createUser(name: String!): User! @create
+    createUser(name: String!): User! @create
 
-  updateUser(_id: ID!,name:String) :User @update
+    updateUser(_id: ID!, name: String): User @update
 
-  upsertUser(_id: ID!, name: String!, email: String): User @upsert
+    upsertUser(_id: ID!, name: String!, email: String): User @upsert
 
-  deleteUser(_id: ID! @whereKey): User @delete
+    deleteUser(_id: ID! @whereKey): User @delete
 }
